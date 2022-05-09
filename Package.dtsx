@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{B1116B0A-4F90-4DCD-920E-F33FF47B4A97}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{0880BEE4-235A-48CA-94E7-3B686378BB41}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -46,9 +46,39 @@
           DTS:ConnectionString="Data Source=LAPTOP-AN6RO64;Initial Catalog=ParcialOut;Integrated Security=True;Application Name=SSIS-Package-{609CBD5A-E960-42FD-8615-68B0548768D9}LAPTOP-AN6RO64.ParcialOut;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-AN6RO64.ParcialOut1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C834A876-F85A-471B-A92C-29E56B064BEA}"
+      DTS:ObjectName="LAPTOP-AN6RO64.ParcialOut1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-AN6RO64;Initial Catalog=ParcialOut;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{5DDD32B9-FCF3-4263-B2CE-9E8343F3111E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C834A876-F85A-471B-A92C-29E56B064BEA}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Categories" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Tarea Flujo de datos"
       DTS:CreationName="Microsoft.Pipeline"
@@ -78,13 +108,17 @@
                   expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-ProductCategoryID AS ChildProductCategoryID, Name, 'A' AS Origin FROM AdventureWorksLT2014.SalesLT.ProductCategory WHERE ParentProductCategoryID IS NULL
+  ProductCategoryID AS ChildProductCategoryID,
+  Name,
+  'A' AS Origin
+FROM SalesLT.ProductCategory
+WHERE ParentProductCategoryID IS NULL
 UNION
 SELECT
-Child.ProductCategoryID, CONCAT(Parent.Name, ' - ', Child.Name) AS Child, 'A' AS Origin
-FROM AdventureWorksLT2014.SalesLT.ProductCategory Parent
-INNER JOIN AdventureWorksLT2014.SalesLT.ProductCategory Child
-ON Child.ParentProductCategoryID = Parent.ProductCategoryID
+  Child.ProductCategoryID, CONCAT(Parent.Name, ' - ',   Child.Name) AS Child, 'A' AS Origin
+FROM SalesLT.ProductCategory Parent
+  INNER JOIN SalesLT.ProductCategory Child
+  ON Child.ParentProductCategoryID = Parent.ProductCategoryID
 WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
                 <property
                   dataType="System.Int32"
@@ -478,8 +512,11 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CategoryID AS ProductCategoryID, CategoryName AS Name, 'N' AS Origin
-FROM     Categories</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+  CategoryID AS ProductCategoryID,
+  CategoryName AS Name,
+  'N' AS Origin
+FROM Categories</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
@@ -895,6 +932,16 @@ FROM     Categories</property>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{4F0B5D47-0AA6-46B7-86BF-1E85D01EE660}"
+      DTS:From="Package\Tarea Ejecutar SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Flujo de datos" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -906,11 +953,37 @@ FROM     Categories</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Tarea Flujo de datos"
-          TopLeft="245.833323564795,78.0000006198883" />
+          TopLeft="271.666655871604,208.000001653036" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Tarea Ejecutar SQL"
+          TopLeft="269.999989271164,102.266667479409" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="356.833322571384,143.866667479409">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.1333341736264"
+              Start="0,0"
+              End="0,56.6333341736264">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.6333341736264" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -920,50 +993,32 @@ FROM     Categories</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Tarea Flujo de datos\AdventureWorks"
-          TopLeft="204.999991854032,62.4000004959106" />
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\Tarea Flujo de datos\Northwind"
-          TopLeft="390.833317803013,61.7333330165015" />
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Tarea Flujo de datos\Destino de ADO NET"
-          TopLeft="272.435886610268,344.666669405831" />
+          Size="124.8,41.6"
+          Id="Package\Tarea Flujo de datos\Ordenar 1"
+          TopLeft="512.756389881302,175.005129106881" />
         <NodeLayout
           Size="116.8,41.6"
           Id="Package\Tarea Flujo de datos\Ordenar"
-          TopLeft="229.487170368179,156.205128957471" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET]"
-          TopLeft="285.243581111105,104.000000495911">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.2051284615606"
-              Start="0,0"
-              End="0,44.7051284615606">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.7051284615606" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="348.653832299588,177.005129122775" />
         <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\Tarea Flujo de datos\Ordenar 1"
-          TopLeft="393.589727949893,154.205128941577" />
+          Size="125.6,41.6"
+          Id="Package\Tarea Flujo de datos\Northwind"
+          TopLeft="509.999979734422,82.5333331818051" />
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Tarea Flujo de datos\Mezclar"
+          TopLeft="418.717932079593,257.871796432112" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Tarea Flujo de datos\Destino de ADO NET"
+          TopLeft="390.769215241458,364.60000289758" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tarea Flujo de datos\AdventureWorks"
+          TopLeft="324.166653785441,83.2000006612142" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET1]"
-          TopLeft="454.811522876453,103.333333016502">
+          TopLeft="573.978184807862,124.133333181806">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -983,36 +1038,20 @@ FROM     Categories</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="115.2,41.6"
-          Id="Package\Tarea Flujo de datos\Mezclar"
-          TopLeft="307.051269850161,236.205129593254" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
-          TopLeft="287.887170368179,197.805128957471">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET]"
+          TopLeft="404.410243042514,124.800000661215">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.8974328153155,38.4000006357828"
+              EndConnector="0,52.2051284615606"
               Start="0,0"
-              End="58.8974328153155,30.9000006357828">
+              End="0,44.7051284615606">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.7243839378879" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.7243839378879"
-                    Point2="0,22.7243839378879"
-                    Point3="4,22.7243839378879" />
-                  <mssgle:LineSegment
-                    End="54.8974328153155,22.7243839378879" />
-                  <mssgle:CubicBezierSegment
-                    Point1="54.8974328153155,22.7243839378879"
-                    Point2="58.8974328153155,22.7243839378879"
-                    Point3="58.8974328153155,26.7243839378879" />
-                  <mssgle:LineSegment
-                    End="58.8974328153155,30.9000006357828" />
+                    End="0,44.7051284615606" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1023,30 +1062,64 @@ FROM     Categories</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
-          TopLeft="455.989727949893,195.805128941577">
+          TopLeft="575.156389881302,216.605129106881">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-73.4717914330654,40.4000006516774"
+              EndConnector="-80.9717911350422,41.2666673252313"
               Start="0,0"
-              End="-73.4717914330654,32.9000006516774">
+              End="-80.9717911350422,33.7666673252313">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.9079455911297" />
+                    End="0,20.4208223075341" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.9079455911297"
-                    Point2="0,23.9079455911297"
-                    Point3="-4,23.9079455911297" />
+                    Point1="0,20.4208223075341"
+                    Point2="0,24.4208223075341"
+                    Point3="-4,24.4208223075341" />
                   <mssgle:LineSegment
-                    End="-69.4717914330654,23.9079455911297" />
+                    End="-76.9717911350422,24.4208223075341" />
                   <mssgle:CubicBezierSegment
-                    Point1="-69.4717914330654,23.9079455911297"
-                    Point2="-73.4717914330654,23.9079455911297"
-                    Point3="-73.4717914330654,27.9079455911297" />
+                    Point1="-76.9717911350422,24.4208223075341"
+                    Point2="-80.9717911350422,24.4208223075341"
+                    Point3="-80.9717911350422,28.4208223075341" />
                   <mssgle:LineSegment
-                    End="-73.4717914330654,32.9000006516774" />
+                    End="-80.9717911350422,33.7666673252313" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="407.053832299588,218.605129122775">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.3974331133386,39.2666673093373"
+              Start="0,0"
+              End="51.3974331133386,31.7666673093373">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2372606542927" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2372606542927"
+                    Point2="0,23.2372606542927"
+                    Point3="4,23.2372606542927" />
+                  <mssgle:LineSegment
+                    End="47.3974331133386,23.2372606542927" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.3974331133386,23.2372606542927"
+                    Point2="51.3974331133386,23.2372606542927"
+                    Point3="51.3974331133386,27.2372606542927" />
+                  <mssgle:LineSegment
+                    End="51.3974331133386,31.7666673093373" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1057,39 +1130,31 @@ FROM     Categories</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de Mezclar 1]"
-          TopLeft="362.743578230215,277.805129593254">
+          TopLeft="477.743573660525,299.471796432112">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.8615398125771"
+              EndConnector="0,65.1282064654685"
               Start="0,0"
-              End="0,59.3615398125771">
+              End="0,57.6282064654685">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.3615398125771" />
+                    End="0,57.6282064654685" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,21.6807699062886,16,16"
+              BoundingBox="-8,20.8141032327342,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\AdventureWorks">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Northwind">
     <Properties>
@@ -1100,6 +1165,14 @@ FROM     Categories</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\AdventureWorks">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
