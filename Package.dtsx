@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{89621FE1-2D1D-461C-B4D4-638BAB5A5AC2}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{9B9FA528-E086-4600-98FE-52A9432A9CEA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7229,7 +7229,7 @@ WHERE C.Origin = 'N'</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="8.31534505208314,32.3276363636364,46.0359765625,9.7490234375"
+              BoundingBox="8.31534505208315,32.3276363636364,46.0359765625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
