@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{9DCDC411-4A83-42B8-A4D8-1F49D8163061}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{BB910F43-C39C-460B-8C0C-DE1D5F485AC1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -92,31 +92,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{AA634BEB-0AD2-4F16-9FDD-95650C353093}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0CB7731-12F4-486C-B5D2-20401B7CEB00}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE Categories;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:refId="Package\Categories"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
       DTS:DTSID="{99C7EE78-8539-441E-9A3A-C7A871583E7E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:ObjectName="Categories"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -124,7 +106,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Tarea Flujo de datos\AdventureWorks"
+              refId="Package\Categories\AdventureWorks"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
@@ -171,7 +153,7 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tarea Flujo de datos\AdventureWorks.Connections[IDbConnection]"
+                  refId="Package\Categories\AdventureWorks.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.AdventureWorksLT2014]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.AdventureWorksLT2014]"
                   description="Administrador de conexiones administrado"
@@ -179,89 +161,89 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET]"
+                  refId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET]"
                   name="Salida de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[ChildProductCategoryID]"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]"
+                      externalMetadataColumnId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[ChildProductCategoryID]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]"
                       name="ChildProductCategoryID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
                       length="103"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]"
                       name="Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
+                      externalMetadataColumnId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]"
                       name="Origin"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[ChildProductCategoryID]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[ChildProductCategoryID]"
                       dataType="i4"
                       name="ChildProductCategoryID" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
                       dataType="wstr"
                       length="103"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
                       dataType="wstr"
                       length="1"
                       name="Origin" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET]"
+                  refId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET]"
                   isErrorOut="true"
                   name="Salida de error de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ChildProductCategoryID]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ChildProductCategoryID]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ChildProductCategoryID]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ChildProductCategoryID]"
                       name="ChildProductCategoryID" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
                       dataType="wstr"
                       length="103"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
                       name="Name" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
                       dataType="wstr"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
                       name="Origin" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      refId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -270,7 +252,7 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\Destino de ADO NET"
+              refId="Package\Categories\Destino de ADO NET"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
               description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
@@ -305,7 +287,7 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tarea Flujo de datos\Destino de ADO NET.Connections[IDbConnection]"
+                  refId="Package\Categories\Destino de ADO NET.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.ParcialOut]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.ParcialOut]"
                   description="Administrador de conexiones administrado"
@@ -313,51 +295,51 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Name]"
+                      refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="103"
                       cachedName="Name"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
-                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]" />
+                      externalMetadataColumnId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
+                      lineageId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Origin]"
+                      refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Origin]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="Origin"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin]"
-                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]" />
+                      externalMetadataColumnId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin]"
+                      lineageId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[ChildProductCategoryID]"
+                      refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[ChildProductCategoryID]"
                       cachedDataType="i4"
                       cachedName="ChildProductCategoryID"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin_Id]"
-                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]" />
+                      externalMetadataColumnId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin_Id]"
+                      lineageId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Category]"
+                      refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Category]"
                       dataType="i4"
                       name="Id_Category" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
+                      refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
                       dataType="wstr"
                       length="103"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin]"
+                      refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin]"
                       dataType="wstr"
                       length="1"
                       name="Origin" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin_Id]"
+                      refId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Origin_Id]"
                       dataType="i4"
                       name="Origin_Id" />
                   </externalMetadataColumns>
@@ -365,22 +347,22 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  refId="Package\Categories\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de ADO NET"
-                  synchronousInputId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  synchronousInputId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      refId="Package\Categories\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      lineageId="Package\Categories\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      refId="Package\Categories\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      lineageId="Package\Categories\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -389,7 +371,7 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\Mezclar"
+              refId="Package\Categories\Mezclar"
               componentClassID="Microsoft.Merge"
               contactInfo="Mezclar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Combina las filas de varios flujos de datos ordenados en un solo flujo de datos ordenados. A diferencia de la combinación de mezcla, todas las filas fluyen hacia la salida. Por ejemplo, se combinan dos listas ordenadas de clientes en una sola lista ordenada. Si el orden no es importante, use la transformación Unión de todo. "
@@ -397,98 +379,98 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               version="1">
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1]"
+                  refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 1]"
                   name="Entrada de Mezclar 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1].Columns[ChildProductCategoryID]"
+                      refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 1].Columns[ChildProductCategoryID]"
                       cachedDataType="i4"
                       cachedName="ChildProductCategoryID"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ChildProductCategoryID]">
+                      lineageId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[ChildProductCategoryID]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]}</property>
+                          name="OutputColumnLineageID">#{Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Name]"
+                      refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="103"
                       cachedName="Name"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Name]">
+                      lineageId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[Name]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]}</property>
+                          name="OutputColumnLineageID">#{Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Origin]"
+                      refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Origin]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="Origin"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Origin]">
+                      lineageId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[Origin]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]}</property>
+                          name="OutputColumnLineageID">#{Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2]"
+                  refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 2]"
                   name="Entrada de Mezclar 2">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Name]"
+                      refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="Name"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Name]">
+                      lineageId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[Name]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]}</property>
+                          name="OutputColumnLineageID">#{Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Origin]"
+                      refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Origin]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="Origin"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin]">
+                      lineageId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]}</property>
+                          name="OutputColumnLineageID">#{Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2].Columns[ProductCategoryID]"
+                      refId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 2].Columns[ProductCategoryID]"
                       cachedDataType="i4"
                       cachedName="ProductCategoryID"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductCategoryID]">
+                      lineageId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductCategoryID]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Id. de linaje de columna de salida"
-                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]}</property>
+                          name="OutputColumnLineageID">#{Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -497,27 +479,27 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1]"
+                  refId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1]"
                   isSorted="true"
                   name="Salida de Mezclar 1">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]"
+                      refId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]"
+                      lineageId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[ChildProductCategoryID]"
                       name="ChildProductCategoryID" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]"
+                      refId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]"
                       dataType="wstr"
                       length="103"
-                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]"
+                      lineageId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Name]"
                       name="Name"
                       sortKeyPosition="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]"
+                      refId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]"
                       dataType="wstr"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]"
+                      lineageId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin]"
                       name="Origin" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -525,7 +507,7 @@ WHERE Child.ParentProductCategoryID IS NOT NULL;</property>
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\Northwind"
+              refId="Package\Categories\Northwind"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
@@ -565,7 +547,7 @@ FROM     Categories</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tarea Flujo de datos\Northwind.Connections[IDbConnection]"
+                  refId="Package\Categories\Northwind.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.Northwind]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.Northwind]"
                   description="Administrador de conexiones administrado"
@@ -573,89 +555,89 @@ FROM     Categories</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET]"
+                  refId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET]"
                   name="Salida de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductCategoryID]"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]"
+                      externalMetadataColumnId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductCategoryID]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]"
                       name="ProductCategoryID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
                       length="15"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]"
                       name="Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
+                      externalMetadataColumnId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]"
                       name="Origin"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductCategoryID]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductCategoryID]"
                       dataType="i4"
                       name="ProductCategoryID" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
                       dataType="wstr"
                       length="15"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].ExternalColumns[Origin]"
                       dataType="wstr"
                       length="1"
                       name="Origin" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET]"
+                  refId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET]"
                   isErrorOut="true"
                   name="Salida de error de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ProductCategoryID]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ProductCategoryID]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ProductCategoryID]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ProductCategoryID]"
                       name="ProductCategoryID" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
                       dataType="wstr"
                       length="15"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
                       name="Name" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
                       dataType="wstr"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[Origin]"
                       name="Origin" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      refId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -664,7 +646,7 @@ FROM     Categories</property>
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\Ordenar"
+              refId="Package\Categories\Ordenar"
               componentClassID="Microsoft.Sort"
               contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
@@ -683,14 +665,14 @@ FROM     Categories</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+                  refId="Package\Categories\Ordenar.Inputs[Entrada de ordenación]"
                   name="Entrada de ordenación">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[ChildProductCategoryID]"
+                      refId="Package\Categories\Ordenar.Inputs[Entrada de ordenación].Columns[ChildProductCategoryID]"
                       cachedDataType="i4"
                       cachedName="ChildProductCategoryID"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]">
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -703,11 +685,11 @@ FROM     Categories</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Name]"
+                      refId="Package\Categories\Ordenar.Inputs[Entrada de ordenación].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="103"
                       cachedName="Name"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]">
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -720,11 +702,11 @@ FROM     Categories</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Origin]"
+                      refId="Package\Categories\Ordenar.Inputs[Entrada de ordenación].Columns[Origin]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="Origin"
-                      lineageId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]">
+                      lineageId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -742,28 +724,28 @@ FROM     Categories</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]"
+                  refId="Package\Categories\Ordenar.Outputs[Salida de ordenación]"
                   isSorted="true"
                   name="Salida de ordenación">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ChildProductCategoryID]"
+                      refId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[ChildProductCategoryID]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ChildProductCategoryID]"
+                      lineageId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[ChildProductCategoryID]"
                       name="ChildProductCategoryID">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]}</property>
+                          name="SortColumnId">#{Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[ChildProductCategoryID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Name]"
+                      refId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[Name]"
                       dataType="wstr"
                       length="103"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Name]"
+                      lineageId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[Name]"
                       name="Name"
                       sortKeyPosition="1">
                       <properties>
@@ -771,21 +753,21 @@ FROM     Categories</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]}</property>
+                          name="SortColumnId">#{Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Name]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Origin]"
+                      refId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[Origin]"
                       dataType="wstr"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Origin]"
+                      lineageId="Package\Categories\Ordenar.Outputs[Salida de ordenación].Columns[Origin]"
                       name="Origin">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]}</property>
+                          name="SortColumnId">#{Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET].Columns[Origin]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -794,7 +776,7 @@ FROM     Categories</property>
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\Ordenar 1"
+              refId="Package\Categories\Ordenar 1"
               componentClassID="Microsoft.Sort"
               contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
@@ -813,14 +795,14 @@ FROM     Categories</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación]"
+                  refId="Package\Categories\Ordenar 1.Inputs[Entrada de ordenación]"
                   name="Entrada de ordenación">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[ProductCategoryID]"
+                      refId="Package\Categories\Ordenar 1.Inputs[Entrada de ordenación].Columns[ProductCategoryID]"
                       cachedDataType="i4"
                       cachedName="ProductCategoryID"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]">
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -833,11 +815,11 @@ FROM     Categories</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Name]"
+                      refId="Package\Categories\Ordenar 1.Inputs[Entrada de ordenación].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="Name"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]">
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -850,11 +832,11 @@ FROM     Categories</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación].Columns[Origin]"
+                      refId="Package\Categories\Ordenar 1.Inputs[Entrada de ordenación].Columns[Origin]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="Origin"
-                      lineageId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]">
+                      lineageId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -872,28 +854,28 @@ FROM     Categories</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación]"
+                  refId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación]"
                   isSorted="true"
                   name="Salida de ordenación">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductCategoryID]"
+                      refId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductCategoryID]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductCategoryID]"
+                      lineageId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductCategoryID]"
                       name="ProductCategoryID">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]}</property>
+                          name="SortColumnId">#{Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[ProductCategoryID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Name]"
+                      refId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[Name]"
                       dataType="wstr"
                       length="15"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Name]"
+                      lineageId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[Name]"
                       name="Name"
                       sortKeyPosition="1">
                       <properties>
@@ -901,21 +883,21 @@ FROM     Categories</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]}</property>
+                          name="SortColumnId">#{Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Name]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin]"
+                      refId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin]"
                       dataType="wstr"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin]"
+                      lineageId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin]"
                       name="Origin">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]}</property>
+                          name="SortColumnId">#{Package\Categories\Northwind.Outputs[Salida de origen de ADO NET].Columns[Origin]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -926,30 +908,1014 @@ FROM     Categories</property>
           </components>
           <paths>
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de Mezclar 1]"
-              endId="Package\Tarea Flujo de datos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              refId="Package\Categories.Paths[Salida de Mezclar 1]"
+              endId="Package\Categories\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
               name="Salida de Mezclar 1"
-              startId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1]" />
+              startId="Package\Categories\Mezclar.Outputs[Salida de Mezclar 1]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
-              endId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1]"
+              refId="Package\Categories.Paths[Salida de ordenación]"
+              endId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 1]"
               name="Salida de ordenación"
-              startId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]" />
+              startId="Package\Categories\Ordenar.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
-              endId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2]"
+              refId="Package\Categories.Paths[Salida de ordenación1]"
+              endId="Package\Categories\Mezclar.Inputs[Entrada de Mezclar 2]"
               name="Salida de ordenación"
-              startId="Package\Tarea Flujo de datos\Ordenar 1.Outputs[Salida de ordenación]" />
+              startId="Package\Categories\Ordenar 1.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET]"
-              endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+              refId="Package\Categories.Paths[Salida de origen de ADO NET]"
+              endId="Package\Categories\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de origen de ADO NET"
-              startId="Package\Tarea Flujo de datos\AdventureWorks.Outputs[Salida de origen de ADO NET]" />
+              startId="Package\Categories\AdventureWorks.Outputs[Salida de origen de ADO NET]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET1]"
-              endId="Package\Tarea Flujo de datos\Ordenar 1.Inputs[Entrada de ordenación]"
+              refId="Package\Categories.Paths[Salida de origen de ADO NET1]"
+              endId="Package\Categories\Ordenar 1.Inputs[Entrada de ordenación]"
               name="Salida de origen de ADO NET"
-              startId="Package\Tarea Flujo de datos\Northwind.Outputs[Salida de origen de ADO NET]" />
+              startId="Package\Categories\Northwind.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AA634BEB-0AD2-4F16-9FDD-95650C353093}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0CB7731-12F4-486C-B5D2-20401B7CEB00}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="ALTER TABLE Products DROP Constraint FK_Products_Categories;&#xA;GO&#xA;TRUNCATE TABLE Products;&#xA;TRUNCATE TABLE Categories;&#xA;USE ParcialOut&#xA;ALTER TABLE Products ADD Constraint FK_Products_Categories&#xA;FOREIGN KEY (Category_Id) References dbo.Categories(Id_Category) ON DELETE CASCADE;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Products"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{F1B62584-912B-4529-8E45-9914400D2EA2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Products"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Products\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Products"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Products\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.ParcialOut]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.ParcialOut]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="103"
+                      cachedName="ProductName"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Category_Id]"
+                      cachedDataType="i4"
+                      cachedName="Category_Id"
+                      externalMetadataColumnId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Category_Id]"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Category_Id]" />
+                    <inputColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Origin_Id]"
+                      cachedDataType="i4"
+                      cachedName="Origin_Id"
+                      externalMetadataColumnId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Origin_Id]"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin_Id]" />
+                    <inputColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      externalMetadataColumnId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Price]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Id_Product]"
+                      dataType="i4"
+                      name="Id_Product" />
+                    <externalMetadataColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="200"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Category_Id]"
+                      dataType="i4"
+                      name="Category_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Origin_Id]"
+                      dataType="i4"
+                      name="Origin_Id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Products\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Products\AdventureWorks"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="AdventureWorks"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CONCAT(PM.Name, ' - ', P.Name) COLLATE DATABASE_DEFAULT AS ProductName, P.ListPrice AS Price, C.Id_Category AS Category_Id,
+		P.ProductID AS Origin_Id
+FROM AdventureWorksLT2014.SalesLT.Product P
+INNER JOIN AdventureWorksLT2014.SalesLT.ProductModel PM ON PM.ProductModelID = P.ProductModelID
+INNER JOIN ParcialOut.dbo.Categories C ON C.Origin_Id = P.ProductCategoryID
+WHERE C.Origin = 'A'</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Products\AdventureWorks.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.AdventureWorksLT2014]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.AdventureWorksLT2014]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[ProductName]"
+                      length="103"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Price]"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Category_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Category_Id]"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Category_Id]"
+                      name="Category_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Origin_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Origin_Id]"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Origin_Id]"
+                      name="Origin_Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="103"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Price]"
+                      dataType="cy"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Category_Id]"
+                      dataType="i4"
+                      name="Category_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Origin_Id]"
+                      dataType="i4"
+                      name="Origin_Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ProductName]"
+                      dataType="wstr"
+                      length="103"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Price]"
+                      dataType="cy"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Price]"
+                      name="Price" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Category_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Category_Id]"
+                      name="Category_Id" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Origin_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Origin_Id]"
+                      name="Origin_Id" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Products\Mezclar"
+              componentClassID="Microsoft.Merge"
+              contactInfo="Mezclar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina las filas de varios flujos de datos ordenados en un solo flujo de datos ordenados. A diferencia de la combinación de mezcla, todas las filas fluyen hacia la salida. Por ejemplo, se combinan dos listas ordenadas de clientes en una sola lista ordenada. Si el orden no es importante, use la transformación Unión de todo. "
+              name="Mezclar"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 1]"
+                  name="Entrada de Mezclar 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 1].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="103"
+                      cachedName="ProductName"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[ProductName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[ProductName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Category_Id]"
+                      cachedDataType="i4"
+                      cachedName="Category_Id"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Category_Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Category_Id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Origin_Id]"
+                      cachedDataType="i4"
+                      cachedName="Origin_Id"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Origin_Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin_Id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Price]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 2]"
+                  name="Entrada de Mezclar 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 2].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[ProductName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Category_Id]"
+                      cachedDataType="i4"
+                      cachedName="Category_Id"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Category_Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Category_Id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Origin_Id]"
+                      cachedDataType="i4"
+                      cachedName="Origin_Id"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin_Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin_Id]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1]"
+                  isSorted="true"
+                  name="Salida de Mezclar 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[ProductName]"
+                      dataType="wstr"
+                      length="103"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[ProductName]"
+                      name="ProductName"
+                      sortKeyPosition="1" />
+                    <outputColumn
+                      refId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Category_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Category_Id]"
+                      name="Category_Id" />
+                    <outputColumn
+                      refId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Origin_Id]"
+                      name="Origin_Id" />
+                    <outputColumn
+                      refId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Price]"
+                      dataType="cy"
+                      lineageId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1].Columns[Price]"
+                      name="Price" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Products\Northwind"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Northwind"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT P.ProductName AS ProductName, CAST(P.UnitPrice AS money) AS Price, C.Id_Category AS Category_Id, P.ProductID AS Origin_Id
+FROM Northwind.dbo.Products P
+INNER JOIN ParcialOut.dbo.Categories C ON C.Origin_Id = P.CategoryID
+WHERE C.Origin = 'N'</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Products\Northwind.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-029TJT9\MSSQLSERVER01.Northwind]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Products\Northwind.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[ProductName]"
+                      length="40"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[Price]"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Category_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[Category_Id]"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Category_Id]"
+                      name="Category_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Origin_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[Origin_Id]"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Origin_Id]"
+                      name="Origin_Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[Price]"
+                      dataType="cy"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[Category_Id]"
+                      dataType="i4"
+                      name="Category_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Output].ExternalColumns[Origin_Id]"
+                      dataType="i4"
+                      name="Origin_Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Products\Northwind.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[Price]"
+                      dataType="cy"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[Price]"
+                      name="Price" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[Category_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[Category_Id]"
+                      name="Category_Id" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[Origin_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[Origin_Id]"
+                      name="Origin_Id" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Products\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Products\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Products\Ordenar.Inputs[Entrada de ordenación].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="103"
+                      cachedName="ProductName"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[ProductName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Ordenar.Inputs[Entrada de ordenación].Columns[Category_Id]"
+                      cachedDataType="i4"
+                      cachedName="Category_Id"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Category_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Ordenar.Inputs[Entrada de ordenación].Columns[Origin_Id]"
+                      cachedDataType="i4"
+                      cachedName="Origin_Id"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Origin_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Ordenar.Inputs[Entrada de ordenación].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      lineageId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Price]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Products\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[ProductName]"
+                      dataType="wstr"
+                      length="103"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[ProductName]"
+                      name="ProductName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[ProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Category_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Category_Id]"
+                      name="Category_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Category_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Origin_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Origin_Id]"
+                      name="Origin_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Origin_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Price]"
+                      dataType="cy"
+                      lineageId="Package\Products\Ordenar.Outputs[Salida de ordenación].Columns[Price]"
+                      name="Price">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\AdventureWorks.Outputs[ADO NET Source Output].Columns[Price]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Products\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Products\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Products\Ordenar 1.Inputs[Entrada de ordenación].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[ProductName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Ordenar 1.Inputs[Entrada de ordenación].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Price]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Ordenar 1.Inputs[Entrada de ordenación].Columns[Category_Id]"
+                      cachedDataType="i4"
+                      cachedName="Category_Id"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Category_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Products\Ordenar 1.Inputs[Entrada de ordenación].Columns[Origin_Id]"
+                      cachedDataType="i4"
+                      cachedName="Origin_Id"
+                      lineageId="Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Origin_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Products\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[ProductName]"
+                      name="ProductName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[ProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Price]"
+                      dataType="cy"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Price]"
+                      name="Price">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Price]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Category_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Category_Id]"
+                      name="Category_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Category_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin_Id]"
+                      dataType="i4"
+                      lineageId="Package\Products\Ordenar 1.Outputs[Salida de ordenación].Columns[Origin_Id]"
+                      name="Origin_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Products\Northwind.Outputs[ADO NET Source Output].Columns[Origin_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Products.Paths[ADO NET Source Output]"
+              endId="Package\Products\Ordenar.Inputs[Entrada de ordenación]"
+              name="ADO NET Source Output"
+              startId="Package\Products\AdventureWorks.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Products.Paths[ADO NET Source Output1]"
+              endId="Package\Products\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="ADO NET Source Output"
+              startId="Package\Products\Northwind.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Products.Paths[Salida de Mezclar 1]"
+              endId="Package\Products\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="Salida de Mezclar 1"
+              startId="Package\Products\Mezclar.Outputs[Salida de Mezclar 1]" />
+            <path
+              refId="Package\Products.Paths[Salida de ordenación]"
+              endId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 1]"
+              name="Salida de ordenación"
+              startId="Package\Products\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Products.Paths[Salida de ordenación1]"
+              endId="Package\Products\Mezclar.Inputs[Entrada de Mezclar 2]"
+              name="Salida de ordenación"
+              startId="Package\Products\Ordenar 1.Outputs[Salida de ordenación]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -960,10 +1926,18 @@ FROM     Categories</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{4100BDEE-E611-4D87-9ED3-72C82F64E01F}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:From="Package\Execute SQL Task1"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Tarea Flujo de datos" />
+      DTS:To="Package\Categories" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{18B2F309-9B31-481C-B521-A848231FA250}"
+      DTS:From="Package\Categories"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Products" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -976,29 +1950,67 @@ FROM     Categories</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="180,42"
-          Id="Package\Tarea Flujo de datos"
+          Size="190,42"
+          Id="Package\Execute SQL Task1"
+          TopLeft="323,94" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Categories"
           TopLeft="358.833323564795,273.000000619888" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="364,94" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="448.916661782398,136">
+          TopLeft="418,136">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,137.000000619888"
+              EndConnector="-13.8333431018717,137.000000619888"
               Start="0,0"
-              End="0,129.500000619888">
+              End="-13.8333431018717,129.500000619888">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,129.500000619888" />
+                    End="0,77.215569229754" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.215569229754"
+                    Point2="0,81.215569229754"
+                    Point3="-4,81.215569229754" />
+                  <mssgle:LineSegment
+                    End="-9.83334310187166,81.215569229754" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.83334310187166,81.215569229754"
+                    Point2="-13.8333431018717,81.215569229754"
+                    Point3="-13.8333431018717,85.215569229754" />
+                  <mssgle:LineSegment
+                    End="-13.8333431018717,129.500000619888" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Products"
+          TopLeft="616,277" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="490.833323564795,296.000000309944">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166676435205,0"
+              Start="0,0"
+              End="117.666676435205,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117.666676435205,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1011,36 +2023,36 @@ FROM     Categories</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Tarea Flujo de datos">
+    design-time-name="Package\Categories">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="125,42"
-          Id="Package\Tarea Flujo de datos\Ordenar 1"
+          Id="Package\Categories\Ordenar 1"
           TopLeft="594.589727949893,210.205128941577" />
         <NodeLayout
           Size="117,42"
-          Id="Package\Tarea Flujo de datos\Ordenar"
+          Id="Package\Categories\Ordenar"
           TopLeft="430.487170368179,212.205128957471" />
         <NodeLayout
           Size="126,42"
-          Id="Package\Tarea Flujo de datos\Northwind"
+          Id="Package\Categories\Northwind"
           TopLeft="591.833317803013,117.733333016501" />
         <NodeLayout
           Size="118,42"
-          Id="Package\Tarea Flujo de datos\Mezclar"
+          Id="Package\Categories\Mezclar"
           TopLeft="508.051269850161,292.205129593254" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Tarea Flujo de datos\Destino de ADO NET"
-          TopLeft="473.435886610268,400.666669405831" />
+          Id="Package\Categories\Destino de ADO NET"
+          TopLeft="473.435886610268,399.666669405831" />
         <NodeLayout
           Size="155,42"
-          Id="Package\Tarea Flujo de datos\AdventureWorks"
+          Id="Package\Categories\AdventureWorks"
           TopLeft="405.999991854032,118.400000495911" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET1]"
+          Id="Package\Categories.Paths[Salida de origen de ADO NET1]"
           TopLeft="655.811522876453,159.333333016502">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1062,7 +2074,7 @@ FROM     Categories</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET]"
+          Id="Package\Categories.Paths[Salida de origen de ADO NET]"
           TopLeft="486.243581111105,160.000000495911">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1084,7 +2096,7 @@ FROM     Categories</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+          Id="Package\Categories.Paths[Salida de ordenación1]"
           TopLeft="657.089727949893,252.205128941577">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1118,7 +2130,7 @@ FROM     Categories</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          Id="Package\Categories.Paths[Salida de ordenación]"
           TopLeft="488.987170368179,254.205128957471">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1152,19 +2164,19 @@ FROM     Categories</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de Mezclar 1]"
+          Id="Package\Categories.Paths[Salida de Mezclar 1]"
           TopLeft="564.493578230215,334.205129593254">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.461539812577"
+              EndConnector="0,65.461539812577"
               Start="0,0"
-              End="0,58.961539812577">
+              End="0,57.961539812577">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.961539812577" />
+                    End="0,57.961539812577" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1177,7 +2189,7 @@ FROM     Categories</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Northwind">
+    design-time-name="Package\Categories\Northwind">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1185,7 +2197,7 @@ FROM     Categories</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Destino de ADO NET">
+    design-time-name="Package\Categories\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1193,7 +2205,223 @@ FROM     Categories</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\AdventureWorks">
+    design-time-name="Package\Categories\AdventureWorks">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Products">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Products\AdventureWorks"
+          TopLeft="352,154" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Products\Northwind"
+          TopLeft="618,155" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Products\Ordenar"
+          TopLeft="383,293" />
+        <EdgeLayout
+          Id="Package\Products.Paths[ADO NET Source Output]"
+          TopLeft="432,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,97"
+              Start="0,0"
+              End="10.5,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5"
+                    Point2="0,48.5"
+                    Point3="4,48.5" />
+                  <mssgle:LineSegment
+                    End="6.5,48.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,48.5"
+                    Point2="10.5,48.5"
+                    Point3="10.5,52.5" />
+                  <mssgle:LineSegment
+                    End="10.5,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Products\Ordenar 1"
+          TopLeft="640,296" />
+        <EdgeLayout
+          Id="Package\Products.Paths[ADO NET Source Output1]"
+          TopLeft="682.5,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,99"
+              Start="0,0"
+              End="21.5,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="4,49.5" />
+                  <mssgle:LineSegment
+                    End="17.5,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,49.5"
+                    Point2="21.5,49.5"
+                    Point3="21.5,53.5" />
+                  <mssgle:LineSegment
+                    End="21.5,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Products\Mezclar"
+          TopLeft="511,411" />
+        <EdgeLayout
+          Id="Package\Products.Paths[Salida de ordenación]"
+          TopLeft="442.5,335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.166666666667,76"
+              Start="0,0"
+              End="109.166666666667,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.989966555184" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.989966555184"
+                    Point2="0,44.989966555184"
+                    Point3="4,44.989966555184" />
+                  <mssgle:LineSegment
+                    End="105.166666666667,44.989966555184" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105.166666666667,44.989966555184"
+                    Point2="109.166666666667,44.989966555184"
+                    Point3="109.166666666667,48.989966555184" />
+                  <mssgle:LineSegment
+                    End="109.166666666667,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Products.Paths[Salida de ordenación1]"
+          TopLeft="704,338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-115.666666666667,73"
+              Start="0,0"
+              End="-115.666666666667,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.2140468227425" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.2140468227425"
+                    Point2="0,43.2140468227425"
+                    Point3="-4,43.2140468227425" />
+                  <mssgle:LineSegment
+                    End="-111.666666666667,43.2140468227425" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-111.666666666667,43.2140468227425"
+                    Point2="-115.666666666667,43.2140468227425"
+                    Point3="-115.666666666667,47.2140468227425" />
+                  <mssgle:LineSegment
+                    End="-115.666666666667,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Products\ADO NET Destination"
+          TopLeft="483,527" />
+        <EdgeLayout
+          Id="Package\Products.Paths[Salida de Mezclar 1]"
+          TopLeft="573,453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,25.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Products\AdventureWorks">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Products\Northwind">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Products\ADO NET Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
